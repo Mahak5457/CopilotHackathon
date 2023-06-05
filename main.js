@@ -10,10 +10,22 @@ const firebaseApp = firebase.initializeApp({
   appId: "1:411869046612:web:51d470c512bd52000d8ac1",
   measurementId: "G-0KYN3HME21",
 });
+
+
 const db = firebaseApp.firestore();
 const auth = firebaseApp.auth();
 const database = firebaseApp.database();
 var UserID = "";
+
+
+// function render() {
+//   // The application is initialising
+//   if (this.state.loading) return null;
+//   // The user is an Object, so they're logged in
+//   if (this.state.user) return <LoggedIn />;
+//   // The user is null, so they're logged out
+//   return <LoggedOut />;
+// }
 
 
 
@@ -22,7 +34,7 @@ const edit = () =>{
   const balance = document.getElementById("edit").value;
   console.log(userId);
   console.log(balance);
-  firebaseApp.database().ref('users/' + userId).set({
+  firebaseApp.database().ref('users/' + userId).update({
     balance: balance
   });
   document.getElementById("edit").value = "";
@@ -55,7 +67,7 @@ starCountRef.on('value', (snapshot) => {
   data = snapshot.val();
 });
   var data1 = parseInt(data)+Number(addno);
-  firebaseApp.database().ref('users/' + userId).set({
+  firebaseApp.database().ref('users/' + userId).update({
     balance: data1
   });
   show();
@@ -73,7 +85,7 @@ starCountRef.on('value', (snapshot) => {
 });
   console.log(data);
   data = Number(data)-Number(addno);
-  firebaseApp.database().ref('users/' + userId).set({
+  firebaseApp.database().ref('users/' + userId).update({
     balance: data
   });
   show();
@@ -121,3 +133,75 @@ const SignIn = () => {
     console.log(error.message)
   });
 }
+
+const changepage = () => {
+  UserID = firebase.auth().currentUser.uid;
+  window.location.assign("expense.html");
+}
+
+const enterexpense = () => {
+  const amount = document.getElementById("enterAmount").value;
+  const description = document.getElementById("enterDescription").value;
+  const date = document.getElementById("enterdate").value;
+  const userId = firebase.auth().currentUser.uid;
+  firebaseApp.database().ref('users/' + userId).push({
+    amount: amount,
+    description: description,
+    date: date
+  });
+  document.getElementById("enterAmount").value = "";
+  document.getElementById("enterDescription").value = "";
+  document.getElementById("enterdate").value = "";
+}
+
+var srNo = 0;
+var tbody = document.getElementById('tbody');
+
+const addItemToTable = (amount1, description1, date1) => {
+  let trow = document.createElement("tr");
+  let td1 = document.createElement('td');
+  let td2 = document.createElement('td');
+  let td3 = document.createElement('td');
+  let td4 = document.createElement('td');
+
+  td1.innerHTML = ++srNo;
+  td2.innerHTML = amount1;
+  td3.innerHTML = description1;
+  td4.innerHTML = date1;
+
+  trow.appendChild(td1);
+  trow.appendChild(td2);
+  trow.appendChild(td3);
+  trow.appendChild(td4);
+
+  tbody.appendChild(trow);
+}
+
+const addallItemToTable = (Expenses) => {
+  srNo = 0;
+  tbody.innerHTML = "";
+  Expenses.forEach(element => {
+    if(element.amount != undefined)
+    addItemToTable(element.amount, element.description, element.date);
+  });
+}
+
+const GetAllDataOnce = () => {
+  const dbRef = firebase.database().ref();
+  const userId = firebase.auth().currentUser.uid;
+  console.log(firebase.auth().currentUser);
+  dbRef.child("users").child(userId).get().then((snapshot) => {
+    var expense = [];
+
+    snapshot.forEach(childSnapshot => {
+      expense.push(childSnapshot.val());
+    });
+    console.log(expense);
+    addallItemToTable(expense);
+  });
+};
+
+// $(window).load(function() {
+//   GetAllDataOnce();});
+
+// window.onload = GetAllDataOnce;

@@ -20,8 +20,10 @@
       <!-- showing current income and editing -->
       <div class="income">
         <div class="incomepresent">
+
           <p class="dialog" loading="lazy">Your current balance is:</p>
           <p class="balance" id="balance"></p>
+          <button id="show-btn" onclick="show()">Show Balance</button>
         </div>
         <div class="edit">
           <div class="add">
@@ -79,9 +81,9 @@
               />
               <!-- <button id="date-btn" onclick="enterdate()">date</button> -->
             </div>
-            <button id="addExpense-btn" onclick="view()">Add Expense</button>
+            <button id="addExpense-btn" onclick="enterexpense()">Add Expense</button>
           </div>
-          <button id="view-btn" onclick="view()">View Expenses</button>
+          <button id="view-btn" onclick="changepage()">View Expenses</button>
         </div>
       </div>
     </div>

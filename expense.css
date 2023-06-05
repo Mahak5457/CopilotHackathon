@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: px;
+    /* align-items: stretch; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxyge, Ubuntu;
+    background-color: #022140;
+    overflow-x: scroll;
+    justify-content: center;
+    align-items: center;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#show-btn {
+    border: none;
+    background-color: #501F3A;
+    width: 50%;
+    padding: 8px 8px;
+    color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 13px; 
+    border-radius: 10px;
+}
+
+.table-scroll {
+    border-radius: 0.5rem;
+  }
+  
+thead {
+    top: 0;
+    position: sticky;
+  }
+
+/* .wrapper{
+    width: 100%;
+} */
