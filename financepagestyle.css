@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* display: flex;
+    flex-direction: column;
+    flex-grow: 1; */
+    /* padding: 10px 5px 20px; */
+    /* align-items: stretch; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxyge, Ubuntu;
+    background-color: #022140;
+    overflow-x: scroll;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+  }
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+.wrapper{
+    width: 100%;
+}
+
+.logo{
+    /* background-color: #2D283E;
+    height: 30px;
+    width: 100%;
+    align-items: center; */
+    display: none;
+}
+
+.logocon{
+    display: flex;
+    font-size: 20px;
+    color: white;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+}
+
+.income{
+    /* display: flex;
+    height: 100px;
+    align-items: stretch;
+    padding: 10px; */
+    width: 100%;
+}
+
+.incomepresent{
+    background-color: #265077; 
+    /* display: flex; */
+    height: 150px;
+    /* width: 600px; */
+    /* margin: 10px 10px 10px 10px; */
+    border-radius:10px;
+    padding: 15px;
+    margin: 20px 15px;
+}
+
+.dialog{
+    font-size: 20px;
+    color: white;
+    font-weight: bolder;
+    font-family: cursive;
+    margin: 5px 5px 20px 25px;
+}
+
+.balance{
+    font-size: 25px;
+    color: white;
+    font-weight: bolder;
+    font-family: arial;
+    text-align: center;
+    margin: 40px 5px 20px 25px;
+}
+
+.edit{
+    background-color: #265077; 
+    /* display: flex; */
+    height: 280px;
+    /* width: 600px; */
+    margin: 20px 15px;
+    border-radius:10px;
+    padding: 10px;
+}
+
+.add{
+    display: flex;
+    background-color: #022140;
+    height: 80px;
+    border-radius:10px;
+    margin: 10px;
+}
+
+.delete{
+    display: flex;
+    background-color: #022140;
+    height: 80px;
+    border-radius:10px;
+    margin: 10px;
+}
+
+.editbal{
+    display: flex;
+    background-color: #022140;
+    height: 80px;
+    border-radius:10px;
+    margin: 10px;
+}
+
+input{
+    margin: 5px;
+    height: 10px;
+    padding: 8px 5px 5px 8px;
+    border-radius: 5px;
+    background-color: #265077;
+    color: black;
+    border: none;
+}
+
+::placeholder{
+    color: white;
+}
+
+button{
+    border: none;
+    background-color:#501F3A;
+    width: 100%;
+    padding: 8px 8px;
+    color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 13px; 
+    border-radius: 10px;
+    align-self: flex-end;
+}
+
+.addExpense{
+    background-color: #265077; 
+    /* display: flex; */
+    height: 280px;
+    /* width: 600px; */
+    margin: 20px 15px;
+    border-radius:10px;
+    padding: 10px;
+}
+
+.expenseadder
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #022140;
+    height: 210px;
+    border-radius:10px;
+    margin: 5px;
+    padding: 3px;
+}
+
+.enterAmount{
+    display: flex;
+    height: 200;
+}
+
+/* #enter-btn{
+    align-self: flex-end;
+    width: 30%;
+    height: 45%;
+    padding: 8px 8px;
+} */
+
+.enterdescription{
+    display: flex;
+    height: 200;
+}
+
+/* #description-btn{
+    align-self: flex-end;
+    width: 30%;
+    height: 45%;
+    padding: 8px 8px;
+} */
+
+.enterdate{
+    display: flex;
+    height: 200;
+}
+
+/* #date-btn{
+    align-self: flex-end;
+    width: 30%;
+    height: 45%;
+    padding: 8px 8px;
+} */
+
+#view-btn{
+    width: 90%;
+    align-self: flex-end;
+}
+
+#addExpense-btn{
+    width: 90%;
+    align-self: flex-end;
+}
+
+p {
+    font-size: 15px;
+    border-radius:10px;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    font-weight: bolder;
+    /* display: inline-grid; */
+    /* justify-content: center;
+    align-items: center; */
+}
+
+a {
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: bolder;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Page</title>
+    <link rel="Stylesheet" href="financepagestyle.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  </head>
+  <body onload="show()">
+    <div class="wrapper">
+      <!-- site logo -->
+      <div class="logo">
+        <p class="logocon">Track Your Income</p>
+      </div>
+      <!-- showing current income and editing -->
+      <div class="income">
+        <div class="incomepresent">
+          <p class="dialog" loading="lazy">Your current balance is:</p>
+          <p class="balance" id="balance"></p>
+        </div>
+        <div class="edit">
+          <div class="add">
+            <input type="add" name="add" id="add" placeholder="add income" />
+            <button id="add-btn" onclick="add()">add</button>
+          </div>
+          <div class="delete">
+            <input
+              type="delete"
+              name="delete"
+              id="delete"
+              placeholder="delete income"
+            />
+            <button id="Delete-btn" onclick="Delete()">Delete</button>
+          </div>
+          <div class="editbal">
+            <input
+              type="edit"
+              name="edit"
+              id="edit"
+              placeholder="edit income"
+            />
+            <button id="edit-btn" onclick="edit()">edit</button>
+          </div>
+        </div>
+        <div class="addExpense">
+          <div class="expenseadder">
+            <p class="expenseDialog">Add your expense</p>
+            <div class="EnterAmount">
+              <input
+                type="enterAmount"
+                name="enterAmount"
+                id="enterAmount"
+                placeholder="Enter Amount"
+              />
+              <!-- <button id="enter-btn" onclick="enterAmount()">Amount</button> -->
+            </div>
+            <div class="EnterDescription">
+              <input
+                type="enterDescription"
+                name="enterDescription"
+                id="enterDescription"
+                placeholder="Enter Description"
+              />
+              <!-- <button id="description-btn" onclick="enterDescription()"> -->
+                <!-- Details
+              </button> -->
+            </div>
+            <div class="Enterdate">
+              <input
+                type="enterdate"
+                name="enterdate"
+                id="enterdate"
+                placeholder="Enter date"
+              />
+              <!-- <button id="date-btn" onclick="enterdate()">date</button> -->
+            </div>
+            <button id="addExpense-btn" onclick="view()">Add Expense</button>
+          </div>
+          <button id="view-btn" onclick="view()">View Expenses</button>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
