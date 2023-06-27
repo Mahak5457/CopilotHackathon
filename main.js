@@ -144,11 +144,23 @@ const enterexpense = () => {
   const description = document.getElementById("enterDescription").value;
   const date = document.getElementById("enterdate").value;
   const userId = firebase.auth().currentUser.uid;
+
+  var data = 0;
+  var starCountRef = firebase.database().ref('users/' + userId + '/balance');
+starCountRef.on('value', (snapshot) => {
+  data = snapshot.val();
+});
+  console.log(data);
+  data = Number(data)-Number(amount);
+  firebaseApp.database().ref('users/' + userId).update({
+    balance: data
+  });
   firebaseApp.database().ref('users/' + userId).push({
     amount: amount,
     description: description,
     date: date
   });
+  show();
   document.getElementById("enterAmount").value = "";
   document.getElementById("enterDescription").value = "";
   document.getElementById("enterdate").value = "";
